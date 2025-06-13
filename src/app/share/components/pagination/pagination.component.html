@@ -1,9 +1,13 @@
 <nav aria-label="Page navigation example">
   <ul class="pagination">
+     @if(allowback){
     <li class="page-item"><a class="page-link" (click)="send(p-1)" [hidden]="p==0">Previous</a></li>
+     }
     <li class="page-item"><a class="page-link" (click)="send(0)">1</a></li>
     <li class="page-item"><a class="page-link" (click)="send(1)">2</a></li>
     <li class="page-item"><a class="page-link" (click)="send(2)">3</a></li>
+   
     <li class="page-item"><a class="page-link" (click)="send(p+1)" [hidden]="p==nbpages-1">Next</a></li>
-  </ul>
+  
+</ul>
 </nav>

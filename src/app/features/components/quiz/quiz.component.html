@@ -2,19 +2,30 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+            <obs-quiz-config [dataconfig]="data.config"></obs-quiz-config>
+        </div>
+    <div class="row">
+        <div class="col-md-12">
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-
             @if(modedisplay!=='submit'){
             <obs-display (notif)="getdisplay($event)" [class]="'btn btn-danger'" [displaymode]="'quiz'" ></obs-display>
-             <obs-display (notif)="getdisplay($event)" [class]="'btn btn-warning'" [displaymode]="'review'" ></obs-display>
+             @if(data.config.allowReview){
+            <obs-display (notif)="getdisplay($event)" [class]="'btn btn-warning'" [displaymode]="'review'" ></obs-display>
              }
+        }
               <obs-display (notif)="getdisplay($event)" [class]="'btn btn-success'" [displaymode]="'submit'" ></obs-display>
-            </div>
+        </div>
             </div>
         <div class="col-md-12">
             <h1>{{data.name}}</h1>
             <p>{{data.description}}</p>
         </div>
+        @if(data.config.showClock) {
+        <div>
+            {{date}}
+            <p>LA Durre passee: {{durree}}</p>
+        </div>
+    }
   @if(modedisplay=='quiz') {
         @for (q of data.questions; track $index) {
 
@@ -23,7 +34,7 @@
          <obs-question [modedisplay]="'quiz'" [qindex]="$index" [qdata]="q"></obs-question>   
             }
         }
-        <obs-pagination [nbpages]="data.questions.length" (notif)="recuperer($event)"></obs-pagination>
+        <obs-pagination [allowback]="data.config.allowBack" [nbpages]="data.questions.length" (notif)="recuperer($event)"></obs-pagination>
   }
    @if(modedisplay=='review') {
      @for (q of data.questions; track $index) {

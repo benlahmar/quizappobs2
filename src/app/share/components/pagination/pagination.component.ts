@@ -14,6 +14,8 @@ export class PaginationComponent {
 
   @Input()
   nbpages:number;
+  @Input()
+  allowback:boolean;
   send(x:any)
   {
     this.p=x;

@@ -1,1 +1,37 @@
-<p>quiz-config works!</p>
+<div class="accordion" id="accordionPanelsStayOpenExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+        Configuration
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+      <div class="accordion-body">
+       <div class="form-check form-switch">
+  <input [(ngModel)]="dataconfig.allowBack" class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+  <label class="form-check-label" for="switchCheckDefault">Allow Back</label>
+</div>
+<div class="form-check form-switch">
+  <input [(ngModel)]="dataconfig.allowReview"  class="form-check-input" type="checkbox" role="switch" id="switchCheckChecked" checked>
+  <label class="form-check-label" for="switchCheckChecked">Allow Review</label>
+</div>
+<div class="form-check form-switch">
+  <input [(ngModel)]="dataconfig.showClock"  class="form-check-input" type="checkbox" role="switch" id="switchCheckDisabled" >
+  <label class="form-check-label" for="switchCheckDisabled">Show Clock</label>
+</div>
+<div class="row g-3 align-items-center">
+  <div class="col-auto">
+    <label for="inputPassword6" class="col-form-label">Durée</label>
+  </div>
+  <div class="col-auto">
+    <input  [(ngModel)]="dataconfig.duration" type="number" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+  </div>
+  <div class="col-auto">
+    <span id="passwordHelpInline" class="form-text">
+      la durée en min.
+    </span>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>

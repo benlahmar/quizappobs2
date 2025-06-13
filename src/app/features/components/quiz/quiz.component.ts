@@ -4,10 +4,11 @@ import { quizdata } from '../../../core/data/quizdata';
 import { QuestionComponent } from "../question/question.component";
 import { PaginationComponent } from "../../../share/components/pagination/pagination.component";
 import { DisplayComponent } from "../../../share/components/display/display.component";
+import { QuizConfigComponent } from "../quiz-config/quiz-config.component";
 
 @Component({
   selector: 'obs-quiz',
-  imports: [QuestionComponent, PaginationComponent, DisplayComponent],
+  imports: [QuestionComponent, PaginationComponent, DisplayComponent, QuizConfigComponent],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.css'
 })
@@ -16,9 +17,21 @@ export class QuizComponent implements OnInit{
     currentquestion:number=0;
 
     modedisplay:string='quiz';
-
+    date:Date;
+  durree:number=0;
   ngOnInit(): void {
     this.data=new Quiz(quizdata);
+
+    setInterval(() => {
+      this.date=new Date();
+      this.durree++;
+      if(this.data.config.duration<this.durree)
+      {
+        this.modedisplay='submit';
+      }
+
+    }, 1000);
+    
   }
 recuperer(x:any)
 {
