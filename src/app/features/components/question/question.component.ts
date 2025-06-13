@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Question } from '../../../core/models/question';
 import { OptionComponent } from "../option/option.component";
+import { ColordisplayDirective } from '../../../share/directives/colordisplay.directive';
 
 @Component({
   selector: 'obs-question',
-  imports: [OptionComponent],
+  imports: [OptionComponent,ColordisplayDirective],
   templateUrl: './question.component.html',
   styleUrl: './question.component.css'
 })

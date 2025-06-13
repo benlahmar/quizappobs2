@@ -5,10 +5,14 @@ import { QuestionComponent } from "../question/question.component";
 import { PaginationComponent } from "../../../share/components/pagination/pagination.component";
 import { DisplayComponent } from "../../../share/components/display/display.component";
 import { QuizConfigComponent } from "../quiz-config/quiz-config.component";
+import { ColordisplayDirective } from '../../../share/directives/colordisplay.directive';
+import { DatePipe, JsonPipe, PercentPipe } from '@angular/common';
+import { TestPipe } from '../../../share/pipes/test.pipe';
+import { QuestionPipe } from '../../../share/pipes/question.pipe';
 
 @Component({
   selector: 'obs-quiz',
-  imports: [QuestionComponent, PaginationComponent, DisplayComponent, QuizConfigComponent],
+  imports: [QuestionPipe, JsonPipe, TestPipe, PercentPipe, DatePipe, ColordisplayDirective, QuestionComponent, PaginationComponent, DisplayComponent, QuizConfigComponent],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.css'
 })

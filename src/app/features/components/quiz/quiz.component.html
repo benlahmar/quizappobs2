@@ -19,10 +19,11 @@
         <div class="col-md-12">
             <h1>{{data.name}}</h1>
             <p>{{data.description}}</p>
+            <p>{{'abv' | test:'strict'}}</p>
         </div>
         @if(data.config.showClock) {
-        <div>
-            {{date}}
+        <div  [obsColordisplay]="'green'">
+            {{date | date:'mediumTime'}}
             <p>LA Durre passee: {{durree}}</p>
         </div>
     }
@@ -37,18 +38,26 @@
         <obs-pagination [allowback]="data.config.allowBack" [nbpages]="data.questions.length" (notif)="recuperer($event)"></obs-pagination>
   }
    @if(modedisplay=='review') {
-     @for (q of data.questions; track $index) {
+     {{data.questions  | question:'selected'}}
+        <obs-pagination [allowback]="data.config.allowBack" [nbpages]="data.questions.length" (notif)="recuperer($event)"></obs-pagination>
+        <div class="alert alert-info" role="alert">
+            Vous pouvez revoir vos questions.
+        </div>
+     @for (q of data.questions | question:'selected': 'not' ; track $index) {
          <obs-question [modedisplay]="'review'" [qindex]="$index" [qdata]="q"></obs-question>               
         }
    }
    @if(modedisplay=='submit') {
-    <div>Votre score est : {{score()}}%</div>
+    <div>Votre score est : {{score() | percent}}</div>
     @for (q of data.questions; track $index) {
 
          <obs-question [modedisplay]="'submit'" [qindex]="$index" [qdata]="q"></obs-question>   
             
         }
    }
+
+  
+        </div>
     </div>
 </div>
            
