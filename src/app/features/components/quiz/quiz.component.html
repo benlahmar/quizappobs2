@@ -1,0 +1,19 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>{{data.name}}</h1>
+            <p>{{data.description}}</p>
+        </div>
+  
+        @for (q of data.questions; track $index) {
+
+            @if (currentquestion==$index) {
+
+         <obs-question [qindex]="$index" [qdata]="q"></obs-question>   
+            }
+        }
+        <obs-pagination [nbpages]="data.questions.length" (notif)="recuperer($event)"></obs-pagination>
+    </div>
+</div>
+           

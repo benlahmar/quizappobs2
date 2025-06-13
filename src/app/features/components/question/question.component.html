@@ -1,0 +1,14 @@
+
+
+<div class="card" style="width: 100%;">
+ 
+  <div class="card-body">
+    <h5 class="card-title"><span>{{qindex+1}}</span>.{{qdata.name}}</h5>
+    <p class="card-text">
+          @for (o of qdata.options; track $index) {
+        <obs-option [odata]="o"></obs-option>
+    }
+    </p>
+   
+  </div>
+</div>

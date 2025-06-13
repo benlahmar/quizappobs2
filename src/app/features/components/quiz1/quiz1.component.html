@@ -1,0 +1,74 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <button (click)="changemode('quiz')" type="button" class="btn btn-danger">Quiz</button>
+            <button (click)="changemode('review')"  type="button" class="btn btn-warning">Review</button>
+            <button (click)="changemode('submit')"  type="button" class="btn btn-success">Submit</button>
+</div>
+        </div>
+    <h1>{{data.name}}</h1>
+    <h5>{{data.description}}</h5>
+    @if (displaymode=='quiz') {
+    <div>
+    @for (q of data.questions; track $index) {
+        @if ($index==currentquestion) {
+        <div >
+            <h6>{{$index+1}}.{{q.name}}</h6>
+            @for (o of q.options; track $index) {
+               <div>
+                
+                <input type="checkbox"  (change)="test(o)" [(ngModel)]="o.isSelected"/>{{o.name}}
+                </div>
+            }
+           
+        </div>
+        
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li  [hidden]="$index==0" class="page-item"><a class="page-link"  (click)="goToQuestion(currentquestion-1)">Previous</a></li>
+                <li class="page-item"><a class="page-link" (click)="goToQuestion(0)">1</a></li>
+                <li class="page-item"><a class="page-link" (click)="goToQuestion(1)">2</a></li>
+                <li class="page-item"><a class="page-link" (click)="goToQuestion(2)">3</a></li>
+                <li [hidden]="$index==data.questions.length-1" class="page-item"><a class="page-link" (click)="goToQuestion(currentquestion+1)">Next</a></li>
+            </ul>
+        </nav>
+    }
+
+    }
+</div>
+    }
+     @if (displaymode=='review') {
+    <div>   
+         @for (q of data.questions; track $index) {
+       
+        <div [class]="q.isselected()?'alert alert-info':'alert alert-danger'" role="alert">
+            <h6>{{$index+1}}.{{q.name}}</h6>
+           
+        </div>
+    }
+    </div>
+}
+@if (displaymode=='submit') {
+    <div>
+         @for (q of data.questions; track $index) {
+       
+        <div [class]="q.isCorrect()?'alert alert-info':'alert alert-danger'" role="alert">
+            <h6>{{$index+1}}.{{q.name}}</h6>
+            @for (o of q.options; track $index) {
+               <div>
+                
+                <input disabled type="checkbox"  (change)="test(o)" [(ngModel)]="o.isSelected"/>{{o.name}}
+                </div>
+            }
+           <span>Votre reponse est {{q.isCorrect()?' Correct':' Incorrect'}}</span>
+        </div>
+        
+        
+    
+
+    }
+    </div>
+}
+</div>
