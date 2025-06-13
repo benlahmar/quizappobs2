@@ -9,6 +9,7 @@
           @for (o of qdata.options; track $index) {
         <obs-option [modedisplay]="modedisplay" [odata]="o"></obs-option>
     }
+    <span [hidden]="modedisplay!=='submit'">Votre reponse est : {{qdata.isCorrect()?' Correct':'Incorrect'}}</span>
     </p>
 }
    

@@ -31,9 +31,8 @@
         }
    }
    @if(modedisplay=='submit') {
+    <div>Votre score est : {{score()}}%</div>
     @for (q of data.questions; track $index) {
-
-           
 
          <obs-question [modedisplay]="'submit'" [qindex]="$index" [qdata]="q"></obs-question>   
             

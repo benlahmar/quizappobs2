@@ -26,9 +26,17 @@ export class QuestionComponent {
         return 'card-title alert alert-success';
       }
       else{
-          return 'card-title alert alert-danger';
+          return 'card-title alert alert-warning';
       }
     }else
+    if(this.modedisplay=='submit'){
+      if(this.qdata.isselected())
+      {
+           return ' alert alert-success';
+      }else{
+          return 'alert alert-danger';
+      }
+    }
     return '';
   }
 }

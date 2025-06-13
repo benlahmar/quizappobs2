@@ -31,4 +31,17 @@ getdisplay(x:any)
   
 }
 
+score()
+{
+  let s=0;
+  this.data.questions.forEach(q => {
+    if(q.isCorrect())
+    {
+      s++;
+    }
+  }
+);
+return s*100/(this.data.questions.length);
+}
+
 }
