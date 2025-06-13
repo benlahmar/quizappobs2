@@ -14,5 +14,21 @@ export class QuestionComponent {
   qdata:Question;
   @Input()
   qindex:number;
+  @Input()
+  modedisplay:string ; // Default display mode
 
+  displaycolor()
+  {
+    if(this.modedisplay=='review')
+    {
+      if(this.qdata.isselected())
+      {
+        return 'card-title alert alert-success';
+      }
+      else{
+          return 'card-title alert alert-danger';
+      }
+    }else
+    return '';
+  }
 }

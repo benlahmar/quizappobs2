@@ -2,18 +2,43 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+
+            @if(modedisplay!=='submit'){
+            <obs-display (notif)="getdisplay($event)" [class]="'btn btn-danger'" [displaymode]="'quiz'" ></obs-display>
+             <obs-display (notif)="getdisplay($event)" [class]="'btn btn-warning'" [displaymode]="'review'" ></obs-display>
+             }
+              <obs-display (notif)="getdisplay($event)" [class]="'btn btn-success'" [displaymode]="'submit'" ></obs-display>
+            </div>
+            </div>
+        <div class="col-md-12">
             <h1>{{data.name}}</h1>
             <p>{{data.description}}</p>
         </div>
-  
+  @if(modedisplay=='quiz') {
         @for (q of data.questions; track $index) {
 
             @if (currentquestion==$index) {
 
-         <obs-question [qindex]="$index" [qdata]="q"></obs-question>   
+         <obs-question [modedisplay]="'quiz'" [qindex]="$index" [qdata]="q"></obs-question>   
             }
         }
         <obs-pagination [nbpages]="data.questions.length" (notif)="recuperer($event)"></obs-pagination>
+  }
+   @if(modedisplay=='review') {
+     @for (q of data.questions; track $index) {
+         <obs-question [modedisplay]="'review'" [qindex]="$index" [qdata]="q"></obs-question>               
+        }
+   }
+   @if(modedisplay=='submit') {
+    @for (q of data.questions; track $index) {
+
+           
+
+         <obs-question [modedisplay]="'submit'" [qindex]="$index" [qdata]="q"></obs-question>   
+            
+        }
+   }
     </div>
 </div>
            

@@ -1,5 +1,5 @@
 <div class="form-check">
-  <input [(ngModel)]="odata.isSelected" [id]="odata.id" class="form-check-input" type="checkbox" value="" id="checkDefault">
+  <input [disabled]="modedisplay=='submit'" [(ngModel)]="odata.isSelected" [id]="odata.id" class="form-check-input" type="checkbox" value="" id="checkDefault">
   <label class="form-check-label" for="checkDefault">
     {{odata.name}} 
   </label>

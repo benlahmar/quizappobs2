@@ -3,12 +3,14 @@
 <div class="card" style="width: 100%;">
  
   <div class="card-body">
-    <h5 class="card-title"><span>{{qindex+1}}</span>.{{qdata.name}}</h5>
+    <h5 [class]="displaycolor()"><span>{{qindex+1}}</span>.{{qdata.name}}</h5>
+    @if (modedisplay!= 'review') {
     <p class="card-text">
           @for (o of qdata.options; track $index) {
-        <obs-option [odata]="o"></obs-option>
+        <obs-option [modedisplay]="modedisplay" [odata]="o"></obs-option>
     }
     </p>
+}
    
   </div>
 </div>

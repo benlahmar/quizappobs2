@@ -12,4 +12,6 @@ export class OptionComponent {
 
   @Input()
   odata:Option;
+  @Input()
+  modedisplay:string; // Default display mode
 }
