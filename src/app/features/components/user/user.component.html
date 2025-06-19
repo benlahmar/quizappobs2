@@ -1,0 +1,8 @@
+<div class="card" style="width: 18rem;">
+    <img [src]="'assets/images/useravatar.png'" class="card-img-top" alt="{{ udata.name }}">
+    <div class="card-body">
+        <h5 class="card-title">{{ udata.name }}</h5>
+        <p class="card-text">{{ udata.username }}</p>
+        <a  href="users/{{udata.id}}/profile" class="btn btn-primary">View Details</a>
+    </div>
+</div>

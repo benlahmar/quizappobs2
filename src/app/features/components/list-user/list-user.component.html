@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        @for (u of userdata; track $index) {
+            <div class="col-md-3">
+            <obs-user [udata]="u" ></obs-user>
+            </div>
+        }@empty {
+            <div class="alert alert-danger">Pas d utiulisateur </div>
+        }
+    </div>
+
+</div>
