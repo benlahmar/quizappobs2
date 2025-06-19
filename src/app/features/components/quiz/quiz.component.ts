@@ -9,6 +9,8 @@ import { ColordisplayDirective } from '../../../share/directives/colordisplay.di
 import { DatePipe, JsonPipe, PercentPipe } from '@angular/common';
 import { TestPipe } from '../../../share/pipes/test.pipe';
 import { QuestionPipe } from '../../../share/pipes/question.pipe';
+import { ActivatedRoute } from '@angular/router';
+import { csharp } from '../../../core/data/csharp';
 
 @Component({
   selector: 'obs-quiz',
@@ -23,8 +25,27 @@ export class QuizComponent implements OnInit{
     modedisplay:string='quiz';
     date:Date;
   durree:number=0;
+  theme:any;
+  constructor(private route:ActivatedRoute){}
+
   ngOnInit(): void {
-    this.data=new Quiz(quizdata);
+
+    this.route.params.subscribe(p=>{
+      this.theme=p['quizId'];
+      switch (this.theme) {
+        case 'aspnet':
+          this.data=new Quiz(quizdata);
+          break;
+        case 'csharp':
+        this.data=new Quiz(csharp);
+        break;
+        
+        default:
+          break;
+      }
+
+    })
+    
 
     setInterval(() => {
       this.date=new Date();
