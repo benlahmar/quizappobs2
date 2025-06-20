@@ -57,5 +57,9 @@ export const routes: Routes = [
                 loadComponent:()=>import('./features/components/user-settings/user-settings.component').then(m=>m.UserSettingsComponent)
             }
         ]
+    },
+    {
+        path:'quizform',
+        loadComponent: ()=>import('./features/components/quiz-form/quiz-form.component').then(m=>m.QuizFormComponent)
     }
 ];
