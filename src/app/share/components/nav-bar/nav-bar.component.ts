@@ -1,16 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { LogService } from '../../../core/services/log.service';
+import { CommonModule } from '@angular/common';
+import { AuthService } from '../../../core/services/auth.service';
+import { Store } from '@ngrx/store';
+import { AppStore } from '../../../core/store/appstore';
+import { selectCounterValue } from '../../../core/store/counterselector';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'obs-nav-bar',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent implements OnInit {
 
+  counter$:Observable<number>;
   inf:string
-  constructor( private log:LogService){}
+  constructor( public log:LogService, public logservice:AuthService, private store:Store<{Counter:AppStore}>){
+    this.counter$=store.select(selectCounterValue);
+  }
   ngOnInit(): void {
    this.inf=this.log.getdata();
   
@@ -22,5 +31,10 @@ export class NavBarComponent implements OnInit {
   setinfo()
   {
     this.log.setData('changement de navbar')
+  }
+
+  signout()
+  {
+    this.logservice.signout()
   }
 }

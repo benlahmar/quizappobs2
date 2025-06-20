@@ -12,16 +12,22 @@
                 <li><a href="/quiz" class="nav-link px-2 text-white">Quiz</a></li>
                  <li><a href="/themes" class="nav-link px-2 text-white">Themes</a></li> 
                  <li><a href="/users" class="nav-link px-2 text-white">users</a></li> 
+                
                 <li><a href="/quizform" class="nav-link px-2 text-white">Add Quiz</a></li> 
-
+                 
+                <li><a href="/counter" class="nav-link px-2 text-white">Counter</a></li> 
                  
                  <li><a href="/about" class="nav-link px-2 text-white">About</a></li> 
             </ul> 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search"> 
                     <input type="search" [value]="inf" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search"> 
                 </form> 
+                {{counter$ | async}}
                 <div class="text-end"> 
-                    <button type="button" class="btn btn-outline-light me-2">Login</button> 
+                   
+                    <a href="signin"  class="btn btn-outline-light me-2">Login</a> 
+                    <a  (click)="signout()" class="btn btn-outline-light me-2">Logout</a> 
+
                     <button type="button" (click)="setinfo()" class="btn btn-warning">Sign-up</button> 
 </div> 
 </div> 

@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <form [formGroup]="frm" class="border p-4 rounded shadow bg-white" style="min-width:300px;" (ngSubmit)="onSubmit()">
+        <h3 class="mb-4 text-center">Authentification</h3>
+        <div class="mb-3">
+            <label for="log" class="form-label">Login</label>
+            <input type="text" id="log" class="form-control" formControlName="log" placeholder="Entrez votre login">
+            <div *ngIf="frm.get('log')?.touched && frm.get('log')?.invalid" class="text-danger small">
+                Le login est requis.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="pass" class="form-label">Mot de passe</label>
+            <input type="password" id="pass" class="form-control" formControlName="pass" placeholder="Entrez votre mot de passe">
+            <div *ngIf="frm.get('pass')?.touched && frm.get('pass')?.invalid" class="text-danger small">
+                Le mot de passe est requis.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100" [disabled]="frm.invalid">Se connecter</button>
+        {{msg}}
+    </form>
+</div>
