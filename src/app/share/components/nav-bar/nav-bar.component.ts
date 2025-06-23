@@ -6,10 +6,10 @@ import { Store } from '@ngrx/store';
 import { AppStore } from '../../../core/store/appstore';
 import { selectCounterValue } from '../../../core/store/counterselector';
 import { Observable } from 'rxjs';
-
+import {RouterModule} from '@angular/router'
 @Component({
   selector: 'obs-nav-bar',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })

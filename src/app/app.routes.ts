@@ -77,4 +77,5 @@ export const routes: Routes = [
         path:'counter',
         loadComponent: ()=>import('./share/components/counter/counter.component').then(m=>m.CounterComponent)
     }
+  
 ];

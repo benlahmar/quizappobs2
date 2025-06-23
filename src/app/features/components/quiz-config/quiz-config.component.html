@@ -16,9 +16,10 @@
   <label class="form-check-label" for="switchCheckChecked">Allow Review</label>
 </div>
 <div class="form-check form-switch">
-  <input [(ngModel)]="dataconfig.showClock"  class="form-check-input" type="checkbox" role="switch" id="switchCheckDisabled" >
+  <input [checked]="showclock$ | async" (change)="showclock(!vshowclock)"  class="form-check-input" type="checkbox" role="switch" id="switchCheckDisabled" >
   <label class="form-check-label" for="switchCheckDisabled">Show Clock</label>
 </div>
+{{showclock$ | async}}
 <div class="row g-3 align-items-center">
   <div class="col-auto">
     <label for="inputPassword6" class="col-form-label">Durée</label>

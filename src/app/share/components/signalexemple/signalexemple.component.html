@@ -1,7 +1,5 @@
 <div class="d-flex justify-content-center align-items-center vh-100">
     <button class="btn btn-primary mx-2" (click)="decrement()">-</button>
-    <span class="mx-3 h4">{{ counter$ | async }}</span>
+    <span class="mx-3 h4">{{ count() }}</span>
     <button class="btn btn-primary mx-2" (click)="increment()">+</button>
-   <br/> <input type='number' [(ngModel)]="x">
-     <button class="btn btn-primary mx-2" (click)="setvalue(x)">setvalue</button>
 </div>

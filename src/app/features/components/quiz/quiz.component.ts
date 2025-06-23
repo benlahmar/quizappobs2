@@ -50,7 +50,7 @@ export class QuizComponent implements OnInit{
     setInterval(() => {
       this.date=new Date();
       this.durree++;
-      if(this.data.config.duration<this.durree)
+      if(this.data.config.duration*60<this.durree)
       {
         this.modedisplay='submit';
       }

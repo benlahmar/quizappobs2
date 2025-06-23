@@ -8,16 +8,16 @@
                 </svg> 
             </a> 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"> 
-                <li><a href="" class="nav-link px-2 text-secondary">Home</a></li> 
-                <li><a href="/quiz" class="nav-link px-2 text-white">Quiz</a></li>
-                 <li><a href="/themes" class="nav-link px-2 text-white">Themes</a></li> 
-                 <li><a href="/users" class="nav-link px-2 text-white">users</a></li> 
+                <li><a [routerLink]="['/']" class="nav-link px-2 text-secondary">Home</a></li> 
+                <li><a [routerLink]="['/quiz']" class="nav-link px-2 text-white">Quiz</a></li>
+                 <li><a [routerLink]="['/themes']" class="nav-link px-2 text-white">Themes</a></li> 
+                 <li><a [routerLink]="['/users']" class="nav-link px-2 text-white">users</a></li> 
                 
-                <li><a href="/quizform" class="nav-link px-2 text-white">Add Quiz</a></li> 
+                <li><a [routerLink]="['/quizform']" class="nav-link px-2 text-white">Add Quiz</a></li> 
                  
-                <li><a href="/counter" class="nav-link px-2 text-white">Counter</a></li> 
+                <li><a [routerLink]="['/counter']" class="nav-link px-2 text-white">Counter</a></li> 
                  
-                 <li><a href="/about" class="nav-link px-2 text-white">About</a></li> 
+                 <li><a [routerLink]="['/about']" class="nav-link px-2 text-white">About</a></li> 
             </ul> 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search"> 
                     <input type="search" [value]="inf" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search"> 
