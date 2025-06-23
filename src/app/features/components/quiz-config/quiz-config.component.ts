@@ -27,7 +27,7 @@ alloreview$:Observable<boolean>;
 showclock$:Observable<boolean>
 
 vshowclock:boolean=true
-constructor(private store:Store<{Config:ConfigStore}>)
+constructor(private store:Store<{Config:ConfigStore}> )
 {
   this.quizid$=store.select(selectquizid);
   this.alloreview$=store.select(selectConfigAllowreview);
